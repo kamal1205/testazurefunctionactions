@@ -32,5 +32,8 @@ jobs:
       working-directory: WebApplication1
     - name: App Settings Variable Substitution
       shell: bash
-      run: ls -l
+      run: | 
+            cd ./WebApplication1
+            ls -lrt
+
       
