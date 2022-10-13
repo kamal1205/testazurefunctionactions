@@ -36,7 +36,7 @@ jobs:
       with:
         files: './WebApplication1/myapp/appsettings.json'
       env:
-        test: ${{ secrets.TEST }}
+        test: ${{ env1.secrets.TEST }}
       
     - name: App Settings Variable Substitution
       shell: bash
