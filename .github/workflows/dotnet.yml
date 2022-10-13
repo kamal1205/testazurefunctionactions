@@ -1,7 +1,8 @@
 name: .NET
 
 env:
-  WORKING_REPO: 'WebApplication1/**'
+  WORKING_REPO: 'WebApplication1/**'  
+  OUTPUT_PATH: /tmp/output
   
 on:
   workflow_dispatch:   
@@ -42,5 +43,14 @@ jobs:
       run: | 
             cd ./WebApplication1/myapp/
             ls -lrt
-
+  deploy_dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    needs: [build]
+    steps:
+      - name: Download function
+        uses: actions/download-artifact@v3
+        with:
+          name: testartifact
+          path: ${{ env.OUTPUT_PATH }}
       
