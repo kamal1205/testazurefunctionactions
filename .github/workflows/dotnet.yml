@@ -43,14 +43,9 @@ jobs:
       run: | 
             cd ./WebApplication1/myapp/
             ls -lrt
-  deploy_dev:
-    runs-on: ubuntu-latest
-    environment: dev
-    needs: [build]
-    steps:
-      - name: Download function
-        uses: actions/download-artifact@v3
-        with:
-          name: testartifact
-          path: ${{ env.OUTPUT_PATH }}
-      
+    - name: Package functions
+      uses: actions/upload-artifact@v3
+      with:
+        name: t2
+        path: ${{ env.OUTPUT_PATH }}
+    
