@@ -40,7 +40,7 @@ jobs:
     - name: App Settings Variable Substitution
       shell: bash
       run: | 
-            cd ./WebApplication1
+            cd ./WebApplication1/myapp
             ls -lrt
 
       
