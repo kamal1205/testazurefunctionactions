@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.github",
+    "\\.github\\workflows",
     "\\WebApplication1"
   ],
-  "SelectedNode": "\\WebApplication1\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
