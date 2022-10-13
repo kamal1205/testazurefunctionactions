@@ -37,7 +37,6 @@ jobs:
         files: '/myapp/appsettings.json'
       env:
         test: ${{ secrets.TEST }}
-        App.ServerRootAddress: ${{ env.SERVER_ROOT_ADDRESS }}
     - name: App Settings Variable Substitution
       shell: bash
       run: | 
