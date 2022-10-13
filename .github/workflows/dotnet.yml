@@ -32,8 +32,9 @@ jobs:
       working-directory: WebApplication1
     - name: App Settings Variable Substitution1
       uses: microsoft/variable-substitution@v1
+      
       with:
-        files: '${{env.DOTNET_ROOT}}/myapp/appsettings.json'
+        files: '/myapp/appsettings.json'
       env:
         test: ${{ secrets.TEST }}
         App.ServerRootAddress: ${{ env.SERVER_ROOT_ADDRESS }}
