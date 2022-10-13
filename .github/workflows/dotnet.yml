@@ -47,5 +47,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: t2
-        path: ${{ env.OUTPUT_PATH }}
+        path: ./WebApplication1/myapp
     
