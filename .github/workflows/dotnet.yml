@@ -1,7 +1,7 @@
 name: .NET
 
 env:
-  WORKING_REPO: 'BackEndServices/FleetIoT.Services/FleetIoT.Services'
+  WORKING_REPO: 'WebApplication1/**'
   
 on:
   workflow_dispatch:   
