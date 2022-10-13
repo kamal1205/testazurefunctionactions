@@ -3,7 +3,6 @@ name: .NET
 env:
   WORKING_REPO: 'WebApplication1/**'  
   OUTPUT_PATH: /tmp/output
-  super_secret: ${{ secrets.TEST }}
   
 on:
   workflow_dispatch:   
@@ -37,7 +36,7 @@ jobs:
       with:
         files: './WebApplication1/myapp/appsettings.json'
       env:
-        test: ${{ $env.super_secret}}
+        test: ${{ secrets.TEST }}
       
     - name: App Settings Variable Substitution
       shell: bash
