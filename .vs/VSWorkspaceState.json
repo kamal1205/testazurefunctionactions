@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WebApplication1"
   ],
-  "SelectedNode": "\\C:\\Users\\KAR058\\Source\\Repos\\testazurefunctionactions",
+  "SelectedNode": "\\WebApplication1\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
