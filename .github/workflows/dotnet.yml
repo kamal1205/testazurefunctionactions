@@ -32,8 +32,4 @@ jobs:
       working-directory: WebApplication1
     - name: App Settings Variable Substitution
       run: cmd ls
-      with:
-        files: appsettings.json'
-      env:
-       test: "ttttt"
-       App.ServerRootAddress: ${{ env.SERVER_ROOT_ADDRESS }}
+      
