@@ -32,6 +32,7 @@ jobs:
       working-directory: WebApplication1
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
+      run: cmd ls
       with:
         files: appsettings.json'
       env:
