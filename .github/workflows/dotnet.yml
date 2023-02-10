@@ -6,8 +6,6 @@ on:
   workflow_dispatch:   
   push:
 
-    paths:
-      - WebApplication1/*
 
 jobs:
   build:
