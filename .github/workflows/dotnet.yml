@@ -1,16 +1,11 @@
 name: .NET
-
-  
 env:
   WORKING_REPO: 'WebApplication1/**'  
   OUTPUT_PATH: /tmp/output
-
-
-
 on:
   workflow_dispatch:   
   push:
-    branches: [ "main" ]
+
     paths:
       - WebApplication1/*
 
