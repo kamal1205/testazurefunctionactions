@@ -6,61 +6,27 @@ on:
   workflow_dispatch:   
   push:
 
-
 jobs:
-  path-filters:
-
+  paths-filter:
     runs-on: ubuntu-latest
-
-    
     outputs:
-      output1: ${{ steps.filter.outputs.workflows }}
+      output1: ${{ steps.filter.outputs.workspaceapichanged }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - uses: dorny/paths-filter@v2
       id: filter
       with:
         filters: |
           workflows:
             - '.github/workflows/**'
-    # run only if 'workflows' files were changed
-    - name: workflow tests
-      if: steps.filter.outputs.workflows == 'true'
-      run: echo "Workflow file"
-
-    # run only if not 'workflows' files were changed
-    - name: not workflow tests
-      if: steps.filter.outputs.workflows != 'true'
-      run: echo "NOT workflow file"
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    # run only if changes detected in api 
+      if: steps.filter.outputs.workspaceapichanged == 'true'
+    - name: api change          
+      uses: actions/checkout@v2
       with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-      working-directory: WebApplication1
-    - name: Build
-      run: dotnet build --no-restore
-      working-directory: WebApplication1
-    - name: dotnet publish
-      run: dotnet publish -c Release -o myapp
-      working-directory: WebApplication1
-    - name: App Settings Variable Substitution1
-      uses: microsoft/variable-substitution@v1
-      with:
-        files: './WebApplication1/myapp/appsettings.json'
-      env:
-        test: ${{ secrets.TEST }}
-      
-    - name: App Settings Variable Substitution
-      shell: bash
-      run: | 
-            cd ./WebApplication1/myapp/
-            ls -lrt
-    - name: Package functions
-      uses: actions/upload-artifact@v3
-      with:
-        name: t2
-        path: ./WebApplication1/myapp
-    
+        amma-environment: ${{ inputs.amma-environment }}
+        file-name: ${{ inputs.file-name }}
+        artifact-name: ${{ inputs.file-path }}
+        client-id: ${{ inputs.client-id }}
+        workspace-name: ${{ inputs.workspace-name }}          
+        client-secret: ${{ secrets.ARM_CLIENT_SECRET_AMMA_INTEGRATION }}
