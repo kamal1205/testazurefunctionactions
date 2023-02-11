@@ -19,10 +19,15 @@ jobs:
         filters: |
           workspaceapichanged:
             - '.github/workflows/**'
+      # run only if 'workflows' files were changed
+    - name: workflow tests
+      if: steps.filter.outputs.workflows == 'true'
+      run: echo "Workflow file"
     
     # run only if changes detected in api 
-      if: steps.filter.outputs.workspaceapichanged == 'true'
-    - name: api change          
+      
+    - name: api change
+      if: steps.filter.outputs.workspaceapichanged == 'true'          
       uses: actions/checkout@v2
       with:
         amma-environment: ${{ inputs.amma-environment }}
