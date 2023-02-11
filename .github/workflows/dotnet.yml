@@ -30,7 +30,7 @@ jobs:
     # run only if changes detected in api
    
     - name: api change
-      if: steps.filter.outputs.workspaceapichanged == 'true'          
+      if: steps.filter.outputs.workflows == 'true'          
       uses: actions/checkout@v2
       with:
         amma-environment: ${{ inputs.amma-environment }}
