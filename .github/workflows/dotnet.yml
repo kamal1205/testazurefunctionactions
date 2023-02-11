@@ -21,7 +21,7 @@ jobs:
             - '.github/workflows/**'
       # run only if 'workflows' files were changed
     - name: workflow tests
-      if: steps.filter.outputs.workflows == 'true'
+      if: steps.filter.outputs.workspaceapichanged == 'true'
       run: echo "Workflow file"
     
     # run only if changes detected in api 
